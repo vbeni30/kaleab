@@ -4,11 +4,13 @@ import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { useEffect } from "react";
+import { YouTubeLite } from "@/components/ui/youtube-lite";
 
 interface Project {
 	id?: number;
 	title: string;
 	thumbnail?: string;
+	youtubeId?: string;
 	artist?: string;
 	client?: string;
 	views?: string;
@@ -123,7 +125,7 @@ export function ProjectsModal({
 									type === "posters"
 										? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
 										: type === "skins"
-											? "grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+											? "grid-cols-2 md:grid-cols-3"
 											: "grid-cols-1 md:grid-cols-2 gap-8"
 								}`}
 							>
@@ -132,20 +134,38 @@ export function ProjectsModal({
 										key={project.id || index}
 										initial={{ opacity: 0, y: 20 }}
 										animate={{ opacity: 1, y: 0 }}
-										transition={{ duration: 0.3, delay: index * 0.05 }}
+										transition={{
+											duration: 0.25,
+											delay: Math.min(index * 0.03, 0.25),
+										}}
 										className="group"
 									>
-										<div className="relative aspect-video md:aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:border-accent/50 transition-all duration-300">
-											<Image
-												src={project.thumbnail || "/media/111_00086402.png"}
-												alt={project.title}
-												fill
-												sizes="(max-width: 768px) 100vw, 25vw"
-												className="object-cover"
-											/>
-
-											{/* Hover Glow */}
-											<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-accent/5" />
+										<div
+											className={`relative rounded-2xl overflow-hidden border border-white/10 bg-black hover:border-accent/50 transition-all duration-300 ${
+												project.youtubeId
+													? "aspect-video"
+													: "aspect-video md:aspect-square"
+											}`}
+										>
+											{project.youtubeId ? (
+												<YouTubeLite
+													youtubeId={project.youtubeId}
+													title={project.title}
+													embedded
+													className="rounded-2xl"
+												/>
+											) : (
+												<>
+													<Image
+														src={project.thumbnail || "/media/111_00086402.png"}
+														alt={project.title}
+														fill
+														sizes="(max-width: 768px) 100vw, 25vw"
+														className="object-cover"
+													/>
+													<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-accent/5" />
+												</>
+											)}
 										</div>
 										<div className="mt-4">
 											<h3 className="text-lg font-light group-hover:text-accent transition-colors">

@@ -29,7 +29,7 @@ const HeroParallax = ({
 		offset: ["start start", "end start"],
 	});
 
-	const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+	const springConfig = { stiffness: 260, damping: 38, bounce: 0 };
 
 	const translateX = useSpring(
 		useTransform(scrollYProgress, [0, 1], [0, 1000]),
@@ -72,11 +72,12 @@ const HeroParallax = ({
 				className=""
 			>
 				<motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-					{firstRow.map((product) => (
+					{firstRow.map((product, i) => (
 						<ProductCard
 							product={product}
 							translate={translateX}
 							key={product.title}
+							priority={i < 2}
 						/>
 					))}
 				</motion.div>
@@ -140,6 +141,7 @@ const Header = () => {
 const ProductCard = ({
 	product,
 	translate,
+	priority = false,
 }: {
 	product: {
 		title: string;
@@ -148,6 +150,7 @@ const ProductCard = ({
 		category?: string;
 	};
 	translate: MotionValue<number>;
+	priority?: boolean;
 }) => {
 	return (
 		<motion.div
@@ -171,7 +174,7 @@ const ProductCard = ({
 						fill
 						sizes="(max-width: 768px) 80vw, 30rem"
 						className="object-cover"
-						priority
+						priority={priority}
 					/>
 				</div>
 			</a>

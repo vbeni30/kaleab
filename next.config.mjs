@@ -1,20 +1,27 @@
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  turbopack: {
-    root: __dirname,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
-}
+	turbopack: {
+		root: __dirname,
+	},
+	typescript: {
+		ignoreBuildErrors: true,
+	},
+	images: {
+		unoptimized: true,
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "i.ytimg.com",
+				pathname: "/vi/**",
+			},
+		],
+	},
+};
 
-export default nextConfig
+export default nextConfig;

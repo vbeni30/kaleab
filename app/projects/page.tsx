@@ -1,12 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import {
 	ArrowUpRight,
 	ExternalLink,
 	ImageIcon,
 	Palette,
-	Play,
 	Youtube,
 } from "lucide-react";
 import Image from "next/image";
@@ -17,96 +16,97 @@ import { Navbar } from "@/components/navbar";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { ProjectsModal } from "@/components/ui/projects-modal";
+import { YouTubeLite } from "@/components/ui/youtube-lite";
 
 const heroProjects = [
 	{
 		title: "Neon Dreams",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/car 1.jpeg",
 		category: "VFX",
 	},
 	{
 		title: "Digital Horizons",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/matrix ship frame.jpeg",
 		category: "3D",
 	},
 	{
 		title: "Motion Flow",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/flow poster.jpeg",
 		category: "Animation",
 	},
 	{
 		title: "Color Symphony",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/chromokopia .jpeg",
 		category: "Editing",
 	},
 	{
 		title: "Abstract Reality",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/nerliv 3.jpeg",
 		category: "VFX",
 	},
 	{
 		title: "Future Visions",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/cyber poster.jpeg",
 		category: "3D",
 	},
 	{
 		title: "Dynamic Pulse",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/v2 4k.jpeg",
 		category: "Animation",
 	},
 	{
 		title: "Cinematic Grade",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/CTRLD 1 all dj poster.jpeg",
 		category: "Editing",
 	},
 	{
 		title: "Particle Storm",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/poster nomad.jpeg",
 		category: "VFX",
 	},
 	{
 		title: "Geometric Dreams",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/nerliv 1.jpeg",
 		category: "3D",
 	},
 	{
 		title: "Kinetic Energy",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/pool guy.jpeg",
 		category: "Animation",
 	},
 	{
 		title: "Visual Poetry",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/shells.jpeg",
 		category: "Editing",
 	},
 	{
 		title: "Holographic",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/dotphic.jpeg",
 		category: "VFX",
 	},
 	{
 		title: "Dimensional Shift",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/car 2.jpeg",
 		category: "3D",
 	},
 	{
 		title: "Rhythm & Motion",
 		link: "#",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/hollow passage POSTER .jpeg",
 		category: "Animation",
 	},
 ];
@@ -117,160 +117,168 @@ const featuredImages = [
 		id: 1,
 		title: "Ethereal Light",
 		aspect: "portrait",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/afro girl.jpeg",
 	},
 	{
 		id: 2,
 		title: "Urban Decay",
 		aspect: "landscape",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/beach 2 tone.jpeg",
 	},
 	{
 		id: 3,
 		title: "Neon Nights",
 		aspect: "square",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/nerliv 4.jpeg",
 	},
 	{
 		id: 4,
 		title: "Abstract Form",
 		aspect: "portrait",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/afro girl 2.jpeg",
 	},
 	{
 		id: 5,
 		title: "Digital Dreams",
 		aspect: "landscape",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/nerliv 5.jpeg",
 	},
 	{
 		id: 6,
 		title: "Color Burst",
 		aspect: "square",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/adwa shirt design.jpeg",
 	},
 	{
 		id: 7,
 		title: "Shadow Play",
 		aspect: "landscape",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/car 3.jpeg",
 	},
 	{
 		id: 8,
 		title: "Light Traces",
 		aspect: "portrait",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/Figure Seven.jpeg",
 	},
 ];
 
-// Personal Projects
-const personalProjects = [
+// My Works — embedded YouTube pieces
+const myWorks = [
 	{
 		id: 1,
-		title: "Behind The Scenes - VFX Breakdown",
-		views: "125K",
-		duration: "12:34",
-		thumbnail: "/media/111_00086402.png",
+		title: "Nerliv - Addis Ketema || አዲስ ከተማ (Official Visualizer)",
+		youtubeId: "tbTdvUkvUoA",
 	},
 	{
 		id: 2,
-		title: "Color Grading Tutorial",
-		views: "89K",
-		duration: "18:22",
-		thumbnail: "/media/111_00086402.png",
+		title: "Nerliv - Yetal II የታል (Official Visualizer)",
+		youtubeId: "esrY_m2QcpU",
 	},
 	{
 		id: 3,
-		title: "3D Animation Process",
-		views: "203K",
-		duration: "24:15",
-		thumbnail: "/media/111_00086402.png",
+		title: "Nerliv - Chewata || ጨዋታ (Official Visualizer)",
+		youtubeId: "kls9-2GSiEk",
 	},
 	{
 		id: 4,
-		title: "Motion Graphics Showreel 2024",
-		views: "56K",
-		duration: "03:45",
-		thumbnail: "/media/111_00086402.png",
+		title: "Nerliv - Chis II ጭስ (Official Visualizer)",
+		youtubeId: "8h_sa3UaNyE",
 	},
 	{
 		id: 5,
-		title: "VFX Breakdown Reel",
-		views: "98K",
-		duration: "08:12",
-		thumbnail: "/media/111_00086402.png",
+		title: "Nerliv - Ereft II እረፍት (Official Visualizer)",
+		youtubeId: "xC9d284PZiI",
 	},
 	{
 		id: 6,
-		title: "Creative Studio Tour",
-		views: "145K",
-		duration: "15:30",
-		thumbnail: "/media/111_00086402.png",
+		title: "Hewan Gebreweld - Hewan || ሔዋን (Nerliv Remix) [Official Audio]",
+		youtubeId: "xKhG6ultq-c",
 	},
 	{
 		id: 7,
-		title: "Advanced Color Grading",
-		views: "72K",
-		duration: "22:45",
-		thumbnail: "/media/111_00086402.png",
+		title: "Nerliv - Emetalhu || እመጣለሁ feat. NUBA",
+		youtubeId: "bL7UowEGuKU",
 	},
 	{
 		id: 8,
-		title: "3D Character Design",
-		views: "164K",
-		duration: "19:20",
-		thumbnail: "/media/111_00086402.png",
+		title: "Lastarock - Hayloga || ሃይሎጋ (Nerliv Remix) [Official Video]",
+		youtubeId: "b_auXQql-ts",
+	},
+	{
+		id: 9,
+		title: "Dotphic - Belomi Bena",
+		youtubeId: "WhZVnsqmiaM",
+	},
+	{
+		id: 10,
+		title: "Mikaya Behailu - Lante Sel | ላንተ ስል (Dotphic Remix)",
+		youtubeId: "2JdN1O09T7s",
+	},
+	{
+		id: 11,
+		title: "Dotphic - One II አንድ",
+		youtubeId: "vAg069S6sEI",
+	},
+	{
+		id: 12,
+		title: "Dotphic - Life of Frank",
+		youtubeId: "MlgjnIOVYpM",
+	},
+	{
+		id: 13,
+		title: "Dotphic - Beza",
+		youtubeId: "_R_ApSImyKk",
+	},
+	{
+		id: 14,
+		title: "Dotphic - Dying",
+		youtubeId: "h3v1voTVl6I",
+	},
+	{
+		id: 15,
+		title: "Dotphic - Akkam",
+		youtubeId: "76q0r5Fl6WU",
+	},
+	{
+		id: 16,
+		title: "Samon ሣሞን - TESASATEN ተሳሳትን (Visualizer)",
+		youtubeId: "Pcl417q5krY",
+	},
+	{
+		id: 17,
+		title: "Samon ሣሞን - TIZITA ትዝታ (Visualizer)",
+		youtubeId: "K6aT4Uzvh1o",
+	},
+	{
+		id: 18,
+		title: "Laeke | ላዕከ - Shimel Ena Zeng | ሽመል እና ዘንግ (Official Lyric Video)",
+		youtubeId: "7JZ3CxjDqwc",
+	},
+	{
+		id: 19,
+		title: "Nerliv - Alawkem || አላውቅም feat. Hayu",
+		youtubeId: "KvAHX0dROAs",
 	},
 ];
 
-const visualizers = [
+const vfxMusicVideos = [
 	{
 		id: 1,
-		title: "Cosmic Waves Visualizer",
-		artist: "Electronic Dreams",
-		views: "45K",
-		duration: "04:32",
-		thumbnail: "/media/111_00086402.png",
+		title:
+			"Leul Sisay - አልቻልኩም - Alchalkum | New Ethiopian Music 2024 (Official Music Video)",
+		youtubeId: "Re2ojCldPVY",
 	},
 	{
 		id: 2,
-		title: "Particle Symphony",
-		artist: "Bass Collective",
-		views: "78K",
-		duration: "05:18",
-		thumbnail: "/media/111_00086402.png",
+		title: "Evared - No Capping (Official Music Video)",
+		youtubeId: "fU5Lb2MuNmU",
 	},
 	{
 		id: 3,
-		title: "Geometric Pulse",
-		artist: "Synthwave Radio",
-		views: "92K",
-		duration: "03:45",
-		thumbnail: "/media/111_00086402.png",
-	},
-	{
-		id: 4,
-		title: "Neon Frequency",
-		artist: "Night Drive",
-		views: "61K",
-		duration: "04:02",
-		thumbnail: "/media/111_00086402.png",
-	},
-	{
-		id: 5,
-		title: "Digital Aurora",
-		artist: "Ambient Souls",
-		views: "33K",
-		duration: "06:15",
-		thumbnail: "/media/111_00086402.png",
-	},
-	{
-		id: 6,
-		title: "Crystal Formation",
-		artist: "Deep House Mix",
-		views: "87K",
-		duration: "05:42",
-		thumbnail: "/media/111_00086402.png",
+		title:
+			"Estifanos Tomas - ባንቺ አይደል እንዴ ft. Richo - New Ethiopian Music 2025 (Official Video)",
+		youtubeId: "rmPL_KSY-V8",
 	},
 ];
 
@@ -279,28 +287,49 @@ const videoPosters = [
 		id: 1,
 		title: "Midnight Run",
 		client: "Sony Music",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/poster adwa v6.jpeg",
 	},
 	{
 		id: 2,
 		title: "Electric Dreams",
 		client: "Universal",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/CTRLD2.0.jpeg",
 	},
 	{
 		id: 3,
 		title: "Neon Paradise",
 		client: "Warner Bros",
-		thumbnail: "/media/111_00086402.png",
+		thumbnail: "/web/Phelixyos v2.jpeg",
 	},
 ];
 
 const kowlSkins = [
-	{ id: 1, title: "Crimson Blaze", thumbnail: "/media/111_00086402.png" },
-	{ id: 2, title: "Arctic Frost", thumbnail: "/media/111_00086402.png" },
-	{ id: 3, title: "Shadow Walker", thumbnail: "/media/111_00086402.png" },
-	{ id: 4, title: "Neon Striker", thumbnail: "/media/111_00086402.png" },
-	{ id: 5, title: "Golden Phoenix", thumbnail: "/media/111_00086402.png" },
+	{
+		id: 1,
+		title: "Robel",
+		thumbnail: encodeURI("/media/hog new/robel with background.png"),
+	},
+	{
+		id: 2,
+		title: "Eden",
+		thumbnail: encodeURI("/media/hog new/IMG_20241121_115910_698.png"),
+	},
+	{
+		id: 3,
+		title: "Portrait",
+		thumbnail: encodeURI("/media/hog new/IMG_20241120_123939_871.png"),
+	},
+	{
+		id: 4,
+		title: "Dagi",
+		thumbnail: encodeURI("/media/hog new/dagi 1-min.png"),
+	},
+	{
+		id: 5,
+		title: "Chromakopia",
+		thumbnail: encodeURI("/media/hog new/chromokopia .png"),
+	},
+	{ id: 6, title: "Me", thumbnail: "/web/me.jpeg" },
 ];
 
 // Section Header Component
@@ -358,9 +387,6 @@ export default function ProjectsPage() {
 		type: "all",
 		title: "",
 	});
-	const { scrollYProgress } = useScroll();
-	const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-
 	const openModal = (
 		type: "all" | "personal" | "visualizers" | "posters" | "skins",
 		title: string,
@@ -375,9 +401,9 @@ export default function ProjectsPage() {
 	const getModalProjects = () => {
 		switch (modalState.type) {
 			case "personal":
-				return personalProjects;
+				return myWorks;
 			case "visualizers":
-				return visualizers;
+				return vfxMusicVideos;
 			case "posters":
 				return videoPosters;
 			case "skins":
@@ -398,10 +424,7 @@ export default function ProjectsPage() {
 				{/* Section 01: Featured Images - No Category */}
 				<section className="py-32 px-8 md:px-12 relative">
 					{/* Background Elements */}
-					<motion.div
-						style={{ y: backgroundY }}
-						className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px] pointer-events-none"
-					/>
+					<div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
 
 					<div className="max-w-7xl mx-auto relative">
 						<SectionHeader
@@ -459,7 +482,7 @@ export default function ProjectsPage() {
 					</div>
 				</section>
 
-				{/* Section 02: Personal Projects */}
+				{/* Section 02: My Works */}
 				<section className="py-32 px-8 md:px-12 bg-white/[0.02] border-y border-white/10 relative overflow-hidden">
 					{/* Decorative Lines */}
 					<div className="absolute inset-0 pointer-events-none">
@@ -487,76 +510,60 @@ export default function ProjectsPage() {
 									<div className="flex items-center gap-3 mb-2">
 										<Youtube className="w-5 h-5 text-accent" />
 										<p className="font-mono text-xs tracking-[0.3em] text-accent">
-											PERSONAL PROJECTS
+											PORTFOLIO
 										</p>
 									</div>
-									<h2 className="text-4xl md:text-5xl font-light">
-										My Projects
-									</h2>
+									<h2 className="text-4xl md:text-5xl font-light">My Works</h2>
 								</div>
 							</div>
 							<motion.button
 								whileHover={{ scale: 1.05, x: 5 }}
-								onClick={() => openModal("personal", "Personal Projects")}
+								onClick={() => openModal("personal", "My Works")}
 								className="hidden md:flex items-center gap-2 font-mono text-xs tracking-wider text-muted-foreground hover:text-accent transition-colors"
 							>
 								VIEW ALL <ArrowUpRight className="w-4 h-4" />
 							</motion.button>
 						</motion.div>
 
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-							{personalProjects.slice(0, 2).map((video, index) => (
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+							{myWorks.map((video, index) => (
 								<motion.div
 									key={video.id}
-									initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-									whileInView={{ opacity: 1, x: 0 }}
-									viewport={{ once: true }}
-									transition={{ duration: 0.6, delay: index * 0.1 }}
-									className="group relative"
+									initial={{ opacity: 0, y: 24 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{
+										once: true,
+										margin: "0px 0px -8% 0px",
+										amount: 0.2,
+									}}
+									transition={{
+										duration: 0.35,
+										delay: Math.min(index * 0.02, 0.24),
+										ease: [0.25, 0.1, 0.25, 1],
+									}}
+									className="group flex flex-col"
 								>
-									<div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/50 transition-all duration-500 hover:border-accent/50">
-										<Image
-											src={video.thumbnail}
-											alt={video.title}
-											fill
-											sizes="(max-width: 768px) 100vw, 50vw"
-											className="object-cover"
-										/>
-										{/* Play Button Overlay */}
-										<div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/5 flex items-center justify-center">
-											<motion.div
-												whileHover={{ scale: 1.1 }}
-												className="w-20 h-20 rounded-full bg-accent/90 flex items-center justify-center cursor-pointer shadow-lg shadow-accent/30"
-											>
-												<div className="w-0 h-0 border-l-[16px] border-l-background border-y-[10px] border-y-transparent ml-1" />
-											</motion.div>
-										</div>
+									<YouTubeLite
+										youtubeId={video.youtubeId}
+										title={video.title}
+										className="rounded-2xl border border-white/10 transition-colors duration-300 hover:border-accent/50"
+									/>
 
-										{/* Duration Badge */}
-										<div className="absolute bottom-4 right-4 font-mono text-xs bg-background/90 px-3 py-1 rounded-full">
-											{video.duration}
-										</div>
-
-										{/* Scanline Effect */}
-										<div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-0 group-hover:opacity-30 transition-opacity pointer-events-none" />
-									</div>
-
-									{/* Info */}
-									<div className="mt-4 flex items-start justify-between">
-										<div>
-											<h3 className="text-lg font-light group-hover:text-accent transition-colors">
-												{video.title}
-											</h3>
-											<p className="font-mono text-xs text-muted-foreground mt-1">
-												{video.views} views
-											</p>
-										</div>
-										<motion.div
-											whileHover={{ scale: 1.1, rotate: 45 }}
-											className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-all cursor-pointer"
+									<div className="mt-4 flex items-start justify-between gap-3">
+										<h3 className="text-base md:text-lg font-light group-hover:text-accent transition-colors leading-snug">
+											{video.title}
+										</h3>
+										<a
+											href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="shrink-0"
+											aria-label={`Watch on YouTube: ${video.title}`}
 										>
-											<ExternalLink className="w-4 h-4" />
-										</motion.div>
+											<span className="inline-flex w-10 h-10 rounded-full border border-white/20 items-center justify-center transition-transform duration-200 hover:scale-110 hover:rotate-45 hover:border-accent hover:bg-accent/10">
+												<ExternalLink className="w-4 h-4" />
+											</span>
+										</a>
 									</div>
 								</motion.div>
 							))}
@@ -564,12 +571,9 @@ export default function ProjectsPage() {
 					</div>
 				</section>
 
-				{/* Section 03: Music Visualizers */}
+				{/* Section 03: VFX in music videos */}
 				<section className="py-32 px-8 md:px-12 relative">
-					<motion.div
-						style={{ y: backgroundY }}
-						className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"
-					/>
+					<div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[80px] pointer-events-none" />
 
 					<div className="max-w-7xl mx-auto relative">
 						<motion.div
@@ -584,81 +588,65 @@ export default function ProjectsPage() {
 								</span>
 								<div>
 									<div className="flex items-center gap-3 mb-2">
-										<Play className="w-5 h-5 text-accent" />
+										<Youtube className="w-5 h-5 text-accent" />
 										<p className="font-mono text-xs tracking-[0.3em] text-accent">
-											AUDIO VISUAL
+											CLIENT / COLLAB
 										</p>
 									</div>
 									<h2 className="text-4xl md:text-5xl font-light">
-										Music Visualizers
+										VFX in Music Videos
 									</h2>
 								</div>
 							</div>
 							<motion.button
 								whileHover={{ scale: 1.05, x: 5 }}
-								onClick={() => openModal("visualizers", "Music Visualizers")}
+								onClick={() => openModal("visualizers", "VFX in Music Videos")}
 								className="hidden md:flex items-center gap-2 font-mono text-xs tracking-wider text-muted-foreground hover:text-accent transition-colors"
 							>
 								VIEW ALL <ArrowUpRight className="w-4 h-4" />
 							</motion.button>
 						</motion.div>
 
-						{/* Video Grid for Visualizers - One Row */}
+						{/* Embedded official music videos */}
 						<div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-							{visualizers.slice(0, 3).map((viz, index) => (
+							{vfxMusicVideos.map((video, index) => (
 								<motion.div
-									key={viz.id}
-									initial={{ opacity: 0, y: 40 }}
+									key={video.id}
+									initial={{ opacity: 0, y: 24 }}
 									whileInView={{ opacity: 1, y: 0 }}
-									viewport={{ once: true }}
-									transition={{ duration: 0.5, delay: index * 0.1 }}
-									className="group"
+									viewport={{
+										once: true,
+										margin: "0px 0px -8% 0px",
+										amount: 0.2,
+									}}
+									transition={{
+										duration: 0.35,
+										delay: index * 0.06,
+										ease: [0.25, 0.1, 0.25, 1],
+									}}
+									className="group flex flex-col"
 								>
-									<div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black transition-all duration-500 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/20">
-										<Image
-											src={viz.thumbnail}
-											alt={viz.title}
-											fill
-											sizes="(max-width: 768px) 100vw, 33vw"
-											className="object-cover"
-										/>
-										{/* Play Overlay */}
-										<div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-accent/10 flex items-center justify-center">
-											<motion.div
-												whileHover={{ scale: 1.15 }}
-												className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center cursor-pointer shadow-lg shadow-accent/40"
-											>
-												<Play
-													className="w-6 h-6 text-background ml-1"
-													fill="currentColor"
-												/>
-											</motion.div>
-										</div>
+									<YouTubeLite
+										youtubeId={video.youtubeId}
+										title={video.title}
+										className="rounded-2xl border border-white/10 transition-colors duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/15"
+									/>
 
-										{/* Duration Badge */}
-										<div className="absolute bottom-3 right-3 font-mono text-xs bg-background/90 px-2 py-1 rounded-full">
-											{viz.duration}
-										</div>
-
-										{/* Hover Glow */}
-										<div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-500" />
-
-										{/* Scanline Effect */}
-										<div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-0 group-hover:opacity-30 transition-opacity pointer-events-none" />
-									</div>
-
-									<div className="mt-4 flex items-start justify-between">
-										<div>
-											<h3 className="text-base font-light group-hover:text-accent transition-colors">
-												{viz.title}
-											</h3>
-											<p className="font-mono text-xs text-muted-foreground mt-1">
-												for {viz.artist}
-											</p>
-										</div>
-										<span className="font-mono text-xs text-muted-foreground">
-											{viz.views} views
-										</span>
+									<div className="mt-4 flex items-start justify-between gap-3">
+										<h3 className="text-base font-light group-hover:text-accent transition-colors leading-snug">
+											{video.title}
+										</h3>
+										<a
+											href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="shrink-0"
+											aria-label={`Watch on YouTube: ${video.title}`}
+										>
+											<span className="inline-flex w-10 h-10 rounded-full border border-white/20 items-center justify-center transition-transform duration-200 hover:scale-110 hover:rotate-45 hover:border-accent hover:bg-accent/10">
+												<ExternalLink className="w-4 h-4" />
+											</span>
+										</a>
 									</div>
 								</motion.div>
 							))}
@@ -752,10 +740,7 @@ export default function ProjectsPage() {
 						/>
 					</div>
 
-					<motion.div
-						style={{ y: backgroundY }}
-						className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[200px] pointer-events-none"
-					/>
+					<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
 					<div className="max-w-7xl mx-auto relative">
 						<motion.div
@@ -789,8 +774,8 @@ export default function ProjectsPage() {
 							</motion.button>
 						</motion.div>
 
-						{/* 5 Image Grid */}
-						<div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+						{/* Kowl skins grid */}
+						<div className="grid grid-cols-2 md:grid-cols-3 gap-4">
 							{kowlSkins.map((skin, index) => (
 								<motion.div
 									key={skin.id}
