@@ -178,15 +178,6 @@ const ProductCard = ({
 					/>
 				</div>
 			</a>
-			<div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none rounded-xl transition-opacity duration-300"></div>
-			{product.category && (
-				<span className="absolute top-4 left-4 font-mono text-[10px] tracking-wider px-3 py-1 bg-accent/20 border border-accent/30 rounded-full text-accent opacity-0 group-hover/product:opacity-100 transition-opacity duration-300">
-					{product.category}
-				</span>
-			)}
-			<h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-foreground text-xl font-light transition-opacity duration-300">
-				{product.title}
-			</h2>
 		</motion.div>
 	);
 };

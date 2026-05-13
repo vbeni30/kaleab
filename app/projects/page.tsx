@@ -462,16 +462,6 @@ export default function ProjectsPage() {
 											className="object-cover"
 										/>
 
-										{/* Hover Overlay */}
-										<div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
-											<div className="absolute bottom-0 left-0 right-0 p-4">
-												<p className="font-mono text-xs text-accent mb-1">
-													0{image.id}
-												</p>
-												<h3 className="text-lg font-light">{image.title}</h3>
-											</div>
-										</div>
-
 										{/* Corner Accents */}
 										<div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-accent/0 group-hover:border-accent/50 transition-all duration-300" />
 										<div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-accent/0 group-hover:border-accent/50 transition-all duration-300" />
@@ -710,14 +700,6 @@ export default function ProjectsPage() {
 										{/* Shine Effect */}
 										<div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
-										{/* Info Overlay */}
-										<div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-background to-transparent">
-											<p className="font-mono text-xs text-accent mb-2">
-												{poster.client}
-											</p>
-											<h3 className="text-xl font-light">{poster.title}</h3>
-										</div>
-
 										{/* Corner Accents */}
 										<div className="absolute top-3 left-3 w-6 h-6 border-l-2 border-t-2 border-accent/0 group-hover:border-accent/50 transition-all duration-300" />
 										<div className="absolute bottom-3 right-3 w-6 h-6 border-r-2 border-b-2 border-accent/0 group-hover:border-accent/50 transition-all duration-300" />
@@ -793,13 +775,6 @@ export default function ProjectsPage() {
 											sizes="(max-width: 768px) 50vw, 15vw"
 											className="object-cover"
 										/>
-
-										{/* Hover Overlay */}
-										<div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
-											<div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-												<h3 className="text-sm font-light">{skin.title}</h3>
-											</div>
-										</div>
 
 										{/* Corner Accents */}
 										<div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-accent/0 group-hover:border-accent/50 transition-all duration-300" />
